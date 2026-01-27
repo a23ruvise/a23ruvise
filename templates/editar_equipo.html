@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Editar Equipo</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input class="form-control" type="text" name="nombre" value="{{ equipo[1] }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Ciudad</label>
+        <input class="form-control" type="text" name="ciudad" value="{{ equipo[2] }}">
+    </div>
+    <div class="mb-3">
+        <label>Estadio</label>
+        <input class="form-control" type="text" name="estadio" value="{{ equipo[3] }}">
+    </div>
+    <div class="mb-3">
+        <label>Entrenador</label>
+        <input class="form-control" type="text" name="entrenador" value="{{ equipo[4] }}">
+    </div>
+    <div class="mb-3">
+        <label>Fundación</label>
+        <input class="form-control" type="number" name="fundacion" value="{{ equipo[5] }}">
+    </div>
+    <button class="btn-exotic">Actualizar Equipo</button>
+    <a href="{{ url_for('home') }}" class="btn btn-secondary ms-2">Cancelar</a>
+</form>
+{% endblock %}

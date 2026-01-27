@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Liga Española</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Fondo estático: mismo gradiente que antes */
+            background: linear-gradient(45deg, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+            min-height: 100vh;
+            padding-bottom: 30px;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .glass-card:hover { transform: scale(1.03); }
+
+        .btn-exotic {
+            background: linear-gradient(45deg, #ff0099, #493240);
+            border: none;
+            color: white !important;
+            padding: 12px;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-exotic:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(255,0,150,0.8); }
+
+        h1, h2 { color: white; text-shadow: 0 0 8px rgba(0,0,0,0.4); }
+    </style>
+</head>
+<body>
+
+<nav class="navbar glass-nav mb-4">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="{{ url_for('home') }}">
+            Liga Española
+        </a>
+    </div>
+</nav>
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% block contenido %}{% endblock %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

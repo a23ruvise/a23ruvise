@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<h2>Nuevo Equipo</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input class="form-control" type="text" name="nombre" required>
+    </div>
+    <div class="mb-3">
+        <label>Ciudad</label>
+        <input class="form-control" type="text" name="ciudad">
+    </div>
+    <div class="mb-3">
+        <label>Estadio</label>
+        <input class="form-control" type="text" name="estadio">
+    </div>
+    <div class="mb-3">
+        <label>Entrenador</label>
+        <input class="form-control" type="text" name="entrenador">
+    </div>
+    <div class="mb-3">
+        <label>Fundación</label>
+        <input class="form-control" type="number" name="fundacion">
+    </div>
+    <button class="btn-exotic">Crear Equipo</button>
+</form>
+{% endblock %}

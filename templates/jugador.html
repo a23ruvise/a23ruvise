@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="glass-card">
+    <h2 class="mb-4">{{ jugador[1] }}</h2>
+    <p><strong>Posición:</strong> {{ jugador[2] }}</p>
+    <p><strong>Número:</strong> {{ jugador[3] }}</p>
+    <p><strong>Nacionalidad:</strong> {{ jugador[4] }}</p>
+    <p><strong>Equipo ID:</strong> {{ jugador[5] }}</p>
+
+    <a href="{{ url_for('mostrar_equipo', id_equipo=jugador[5]) }}" class="btn-exotic mt-3">⬅ Volver al equipo</a>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<h2>Nuevo Jugador</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Nombre</label>
+        <input class="form-control" type="text" name="nombre" required>
+    </div>
+    <div class="mb-3">
+        <label>Posición</label>
+        <input class="form-control" type="text" name="posicion">
+    </div>
+    <div class="mb-3">
+        <label>Número</label>
+        <input class="form-control" type="number" name="numero">
+    </div>
+    <div class="mb-3">
+        <label>Nacionalidad</label>
+        <input class="form-control" type="text" name="nacionalidad">
+    </div>
+    <div class="mb-3">
+        <label>Equipo</label>
+        <select class="form-control" name="equipo_id" required>
+            {% for e in equipos %}
+            <option value="{{ e[0] }}">{{ e[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Estado de forma</label>
+        <select class="form-control" name="estado_forma">
+            {% for i in range(3) %}
+                <option value="{{ i }}">{{ "★"*i }}{{ "☆"*(2-i) }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button class="btn-exotic">Crear Jugador</button>
+</form>
+{% endblock %}

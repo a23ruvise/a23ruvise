@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2 class="mb-4">Jugadores con {{ estado }} estrella{% if estado != 1 %}s{% endif %}</h2>
+
+<div class="row g-4">
+    {% for j in jugadores %}
+    <div class="col-md-4">
+        <div class="glass-card text-center">
+            <a class="btn-exotic w-100 mb-2" href="{{ url_for('mostrar_jugador', id_jugador=j[0]) }}">{{ j[1] }}</a>
+            <p class="text-white mb-1">Número: {{ j[2] }}</p>
+            <p class="text-white mb-1">Equipo: {{ j[4] }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="{{ url_for('home') }}" class="btn-exotic mt-4">⬅ Volver</a>
+{% endblock %}

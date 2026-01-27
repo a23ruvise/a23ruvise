@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2 class="mb-4">Jugadores de {{ equipo[1] }}</h2>
+
+<div class="row g-4">
+    {% for j in jugadores %}
+    <div class="col-md-4">
+        <div class="glass-card text-center">
+            <a class="btn-exotic w-100 mb-2" href="{{ url_for('mostrar_jugador', id_jugador=j[0]) }}">{{ j[1] }}</a>
+            <p class="text-white mb-1">Posición: {{ j[2] }}</p>
+            <p class="text-white mb-1">Número: {{ j[3] }}</p>
+            <p class="text-white mb-1">
+                Estado de forma:
+                {% for i in range(2) %}
+                    {% if i < j[6] %}
+                        <a href="{{ url_for('ranking_estado', estado=j[6]) }}" class="text-warning">★</a>
+                    {% else %}
+                        <a href="{{ url_for('ranking_estado', estado=j[6]) }}" class="text-white">☆</a>
+                    {% endif %}
+                {% endfor %}
+            </p>
+            <a class="btn btn-warning w-100 mb-1" href="{{ url_for('editar_jugador', id_jugador=j[0]) }}">Editar</a>
+            <a class="btn btn-danger w-100" href="{{ url_for('eliminar_jugador', id_jugador=j[0]) }}">Eliminar</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="{{ url_for('home') }}" class="btn-exotic mt-4">⬅ Volver</a>
+{% endblock %}
